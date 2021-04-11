@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "919293868108",
+    "project_id": "adadompet-74873",
+    "storage_bucket": "adadompet-74873.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:919293868108:android:560418f994cee364a7dce9",
+        "android_client_info": {
+          "package_name": "com.rupiah.cash.line.pinjaman.selamat.online.cepat.duit.murah.rendah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "919293868108-tpp36dn0h7eio4fp1bj3nnjqjcg8q07f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACWwlSqiQD_LeHEbmJSee-lQ0ZYhHgDew"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "919293868108-tpp36dn0h7eio4fp1bj3nnjqjcg8q07f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

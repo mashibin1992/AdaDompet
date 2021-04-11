@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+
+    <!--用于指定Uri共享，name随意，path属性值表示共享具体路径，设空表示整个SD卡进行共享-->
+    <!--如果设置具体的，例如path="pictures"，则代表根目录下的picture目录-->
+    <!--如果你向其它应用分享pictures目录范围之外的文件是不行的-->
+
+    <external-path
+        name="root_path"
+        path="." />
+</paths>
