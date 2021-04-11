@@ -73,14 +73,11 @@ public class MainActivity extends BaseActivity implements HostSwitchInterfice {
                 mParameterUtil.getInitJson(),
                 "{}");
 //        try {
-
 //            mSp.putString(Constants.DEVICE_ID,data);
 //            mSp.putString(Constants.DEVICE_TOKEN, jsonObject.data.deviceToken);
-
 //        } catch (JSONException e) {
 //            e.printStackTrace();
 //        }
-
     }
 
     private void initWebView() {
@@ -108,6 +105,7 @@ public class MainActivity extends BaseActivity implements HostSwitchInterfice {
 
     /**
      * host回调
+     *
      * @param data
      * @param callback
      */
