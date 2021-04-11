@@ -139,19 +139,19 @@ public class MainActivity extends BaseActivity implements HostSwitchInterfice {
     @Override
     public void huoti(String data, String callback) {
         //活体
-        Map<String, Object> isSuccess = new HashMap<>();
-        isSuccess.put("isSuccess", isAllGranted);
-        if (isAllGranted) {
-            startLivenessActivity();
-        } else {
-            mHostSwitchHandle.uploadData(mCallback, new Gson().toJson(isSuccess));
-        }
+//        Map<String, Object> isSuccess = new HashMap<>();
+//        isSuccess.put("isSuccess", isAllGranted);
+//        if (isAllGranted) {
+//            startLivenessActivity();
+//        } else {
+//            mHostSwitchHandle.uploadData(mCallback, new Gson().toJson(isSuccess));
+//        }
     }
 
     @Override
     public void jumpUrlOuter(String data, String callback) {
         try {
-            String string = new JSONObject(mData).getString("url");
+            String string = new JSONObject(data).getString("url");
             //打开系统浏览器跳转
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_VIEW);
@@ -170,7 +170,7 @@ public class MainActivity extends BaseActivity implements HostSwitchInterfice {
     @Override
     public void disabledGoBack(String data, String callback) {
         try {
-            disabled = (Boolean) new JSONObject(mData).get("disabled");
+            disabled = (Boolean) new JSONObject(data).get("disabled");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -227,7 +227,7 @@ public class MainActivity extends BaseActivity implements HostSwitchInterfice {
                 }
                 i[0]++;
                 if (i[0] == mSplit.length) {
-                    mHostSwitchHandle.uploadData(mCallback, new Gson().toJson(gpsMap));
+                    mHostSwitchHandle.uploadData(callback, new Gson().toJson(gpsMap));
                 }
             });
         } catch (JSONException e) {
