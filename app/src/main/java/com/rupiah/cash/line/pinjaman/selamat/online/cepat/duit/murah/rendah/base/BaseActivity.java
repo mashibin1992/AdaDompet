@@ -32,7 +32,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected Context mContext;
     protected SharedPreferencesUtil mSpUtil = null;
     private Dialog mDialog;
-    protected String[] cameraSDPermission = {
+    protected String[] cameraPermission = {
             Manifest.permission.CAMERA,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.READ_EXTERNAL_STORAGE};
@@ -50,8 +50,8 @@ public abstract class BaseActivity extends AppCompatActivity {
             Manifest.permission.CHANGE_WIFI_STATE,
             Manifest.permission.ACCESS_COARSE_LOCATION,
     };
-    //获取通讯录和和设备信息权限
-    protected final String[] read_contacts = new String[]{
+    //读取通讯录
+    protected final String[] readContacts = new String[]{
             Manifest.permission.READ_CONTACTS,
     };
 

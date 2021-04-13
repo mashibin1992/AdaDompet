@@ -53,6 +53,7 @@ public class WelcomeActivity extends BaseActivity {
             @Override
             public void run() {
                 startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+                finish();
             }
         }, 3000);
     }

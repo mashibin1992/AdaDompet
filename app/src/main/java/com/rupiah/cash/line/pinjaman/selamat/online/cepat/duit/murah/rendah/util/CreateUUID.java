@@ -1,5 +1,6 @@
 package com.rupiah.cash.line.pinjaman.selamat.online.cepat.duit.murah.rendah.util;
 
+import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -9,6 +10,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.provider.Settings;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -159,5 +162,18 @@ public class CreateUUID {
             }
         }
         return uuid;
+    }
+    @SuppressLint("MissingPermission")
+    public static String getUuid(Context context) {
+        String subscriberId = "";
+        TelephonyManager mTelephonyManager = (TelephonyManager) context.getSystemService(context.TELEPHONY_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            //获取Android_ID
+            subscriberId = Settings.System.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+        } else {
+            subscriberId = mTelephonyManager.getSubscriberId();// 手机卡唯一标识,android 10.0获取不到
+        }
+        return subscriberId;
     }
 }

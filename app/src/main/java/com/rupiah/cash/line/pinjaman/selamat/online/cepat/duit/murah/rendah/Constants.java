@@ -10,6 +10,11 @@ public class Constants {
     public static final String DEVICE_ID = "deviceId";
     public static final String DEVICE_TOKEN = "deviceToken";
     public static final String UID = "uid"; //用户id
+    //选择通讯录信息回调
+    public static final int CONTACTS_INFO = 0x10 ;
+    //活体的key
+    public static final String LD_API_SECRET_KEY = "ld_api_secret_key"; //活体识别所需的secretKey
+    public static final String LD_API_ACCESS_KEY = "ld_api_access_key"; //活体识别所需的accessKey
 
     //服务器地址
     public static final String ENV_URL = "dev"; //测试
@@ -27,4 +32,5 @@ public class Constants {
     public static final String ANALYSIS_ERROR = "50022";        //json 解析错误
 
     public static final String DECRYPT_ERROR = "50030";         //数据解密错误
+
 }
