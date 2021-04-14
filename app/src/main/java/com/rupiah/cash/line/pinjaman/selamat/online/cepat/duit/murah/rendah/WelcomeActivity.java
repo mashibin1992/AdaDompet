@@ -41,7 +41,7 @@ public class WelcomeActivity extends BaseActivity {
         mVersion_code.setText(AppInfoUtil.getVersionName(mContext));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             new RxPermissions(this)
-                    .requestEach(Manifest.permission.READ_PHONE_STATE
+                    .requestEach(requestPermissions
                     ).subscribe(permission -> {
                 startMainActivity();
             });

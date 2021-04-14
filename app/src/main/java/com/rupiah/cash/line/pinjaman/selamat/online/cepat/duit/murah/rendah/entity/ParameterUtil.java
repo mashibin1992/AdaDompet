@@ -7,6 +7,7 @@ import android.util.DisplayMetrics;
 
 import androidx.annotation.RequiresApi;
 
+import com.google.gson.Gson;
 import com.rupiah.cash.line.pinjaman.selamat.online.cepat.duit.murah.rendah.Constants;
 import com.rupiah.cash.line.pinjaman.selamat.online.cepat.duit.murah.rendah.R;
 import com.rupiah.cash.line.pinjaman.selamat.online.cepat.duit.murah.rendah.util.AndroidInfoUtil;
@@ -19,6 +20,7 @@ import com.rupiah.cash.line.pinjaman.selamat.online.cepat.duit.murah.rendah.util
 
 import org.json.JSONObject;
 
+import java.util.HashMap;
 import java.util.Locale;
 
 public class ParameterUtil {
@@ -177,5 +179,10 @@ public class ParameterUtil {
         return "";
     }
 
+    public static String getIsSuccessJson(boolean isSuccess) {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("isSuccess", isSuccess);
+        return new Gson().toJson(map);
+    }
 
 }

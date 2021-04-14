@@ -47,7 +47,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected final String[] lundu = new String[]{
             Manifest.permission.ACCESS_NETWORK_STATE,
             Manifest.permission.ACCESS_WIFI_STATE,
-            Manifest.permission.CHANGE_WIFI_STATE,
+            Manifest.permission.READ_PHONE_STATE,
             Manifest.permission.ACCESS_COARSE_LOCATION,
     };
     //读取通讯录

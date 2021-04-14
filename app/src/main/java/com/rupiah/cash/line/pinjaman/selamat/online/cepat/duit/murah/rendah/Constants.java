@@ -11,13 +11,15 @@ public class Constants {
     public static final String DEVICE_TOKEN = "deviceToken";
     public static final String UID = "uid"; //用户id
     //选择通讯录信息回调
-    public static final int CONTACTS_INFO = 0x10 ;
+    public static final int CONTACTS_INFO = 0x10;
     //活体的key
     public static final String LD_API_SECRET_KEY = "ld_api_secret_key"; //活体识别所需的secretKey
     public static final String LD_API_ACCESS_KEY = "ld_api_access_key"; //活体识别所需的accessKey
 
     //服务器地址
     public static final String ENV_URL = "dev"; //测试
+    //活体回调code
+    public static final int REQUEST_CODE_LIVENESS = 0x11;
     //状态码
     public static final String TIME_OUT = "50010";              //网络请求超时
 
